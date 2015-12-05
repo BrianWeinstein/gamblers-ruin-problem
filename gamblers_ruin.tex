@@ -3,11 +3,14 @@
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage[lmargin=1.in,rmargin=1.in,tmargin=1.in,bmargin=1in]{geometry}
 \usepackage{authblk}
 \usepackage{setspace}
+
+\newcommand{\Prob}{\mathrm{P}}
 
 \title{The Gambler's Ruin Problem}
 \author{Brian Weinstein - bmw2148}
@@ -29,9 +32,27 @@ Suppose that the game is played repeatedly (and independently) until the fortune
 
 
 \section{Problem Solution}
-Let $a_i$ denote the probability that gambler $A$ will reach $k$ dollars before it reaches 0 dollars, given that their initial fortune is $i$ dollars. Since each play of the game is independent of the others, the problem essentially starts over on each play, with the only difference being the ``initial'' fortunes of the gambler and casino.
+Let $a_i$ denote the probability that gambler $A$ will reach $k$ dollars before it reaches 0 dollars, given that their initial fortune is $i$ dollars. Since each play of the game is independent of the others, we can think of the problem essentially starts over on each play, with the only difference being that the ``initial'' fortunes of the gambler and casino have changed. The value of interest is $a_i$ for $i\in\{0,1,\ldots,k-1,k\}$.
 
-The value of interest is $a_i$ for $i\in\{0,1,\ldots,k-1,k\}$. The cases of $i=0$ and $i=k$ are trivial. When $A$ runs out of money they can no longer play, and thus $a_0=0$, and when $A$ wins all $k$ dollars, the casino can no longer play, and thus $a_k=1$.
+\subsection{Solution for $i \in \{0,k\}$}
+
+The cases of $i=0$ and $i=k$ are trivial. When $A$ runs out of money they can no longer play, and thus $a_0=0$, and when $A$ wins all $k$ dollars, the casino can no longer play, and thus $a_k=1$. Finding $a_i$ when $i\not\in\{0,k\}$ is nontrivial and is solved below.
+
+\subsection{Solution for $i \in \{1,2,\ldots,k-2,k-1\}$}
+
+Define the following events:
+\begin{itemize}
+\item $A_1$ is the event in which the gambler wins one dollar (i.e., the casino loses one dollar) on the first play of the game,
+\item $B_1$ is the event in which the casino wins one dollar (i.e., the gambler loses one dollar) on the first play of the game, and
+\item $W$ is the event in which the gambler wins all $k$ dollars before reaching $0$ dollars.
+\end{itemize}
+
+By the Law of Total Probability, we see that
+\begin{eqnarray}
+\Prob(W)&=\Prob(A_1)\Prob(W|A_1)+\Prob(B_1)\Prob(W|B_1) \nonumber 
+\\
+&=p\Prob(W|A_1)+(1-p)\Prob(W|B_1). \nonumber 
+\end{eqnarray}
 
 
 
