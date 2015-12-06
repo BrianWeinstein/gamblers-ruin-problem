@@ -38,7 +38,7 @@ Cell[BoxData[
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{"makePlot", "[", "kk_", "]"}], ":=", "\[IndentingNewLine]", 
+  RowBox[{"makePlot", "[", "k_", "]"}], ":=", "\[IndentingNewLine]", 
   RowBox[{"ListPointPlot3D", "[", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"Flatten", "[", "\[IndentingNewLine]", 
@@ -48,10 +48,10 @@ Cell[BoxData[
         RowBox[{"{", 
          RowBox[{"i", ",", "p", ",", 
           RowBox[{"ai", "[", 
-           RowBox[{"i", ",", "kk", ",", "p"}], "]"}]}], "}"}], ",", 
+           RowBox[{"i", ",", "k", ",", "p"}], "]"}]}], "}"}], ",", 
         "\[IndentingNewLine]", 
         RowBox[{"{", 
-         RowBox[{"i", ",", "0", ",", "kk", ",", "1"}], "}"}], ",", 
+         RowBox[{"i", ",", "0", ",", "k", ",", "1"}], "}"}], ",", 
         "\[IndentingNewLine]", 
         RowBox[{"{", 
          RowBox[{"p", ",", "0.06", ",", "0.99", ",", "0.0045"}], "}"}]}], 
@@ -96,7 +96,7 @@ Cell[BoxData[
      RowBox[{"Style", "[", 
       RowBox[{
        RowBox[{"\"\<k=\>\"", "<>", 
-        RowBox[{"ToString", "[", "kk", "]"}]}], ",", " ", "12", ",", " ", 
+        RowBox[{"ToString", "[", "k", "]"}]}], ",", " ", "12", ",", " ", 
        "Italic", ",", " ", "Black"}], "]"}]}]}], "\[IndentingNewLine]", 
    "]"}]}]], "Input",
  CellChangeTimes->{{3.6584181279648933`*^9, 3.6584182144733677`*^9}, {
@@ -109,7 +109,7 @@ Cell[BoxData[
   3.658420188111685*^9, 3.658420310470126*^9}, {3.658420517058593*^9, 
   3.658420523078961*^9}, {3.6584205685065603`*^9, 3.658420590876547*^9}, {
   3.6584206514783163`*^9, 3.658420733733821*^9}, {3.658420906667819*^9, 
-  3.6584209067855463`*^9}}],
+  3.6584209067855463`*^9}, {3.658421778637373*^9, 3.658421784673855*^9}}],
 
 Cell[BoxData[
  RowBox[{"makePlot", "[", "10", "]"}]], "Input",

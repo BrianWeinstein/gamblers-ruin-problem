@@ -13,6 +13,19 @@
 
 \newcommand{\Prob}{\mathrm{P}}
 
+\usepackage{xcolor}
+\usepackage{adjustbox}
+\usepackage{verbatim}
+\definecolor{shadecolor}{rgb}{.9, .9, .9}
+\newenvironment{code}%
+   {\par\noindent\adjustbox{margin=1ex,bgcolor=shadecolor,margin=0ex \medskipamount}\bgroup\minipage\linewidth\verbatim}%
+   {\endverbatim\endminipage\egroup}
+
+\newenvironment{codeSmall}%
+   {\par\noindent\adjustbox{margin=1ex,bgcolor=shadecolor,margin=0ex \medskipamount}\bgroup\minipage\linewidth\verbatim\footnotesize}%
+   {\endverbatim\endminipage\egroup}
+   
+
 \title{The Gambler's Ruin Problem}
 \author{Brian Weinstein - bmw2148}
 \affil{Probability \& Statistics (STAT-W4700), Columbia University, Fall 2015}
@@ -153,6 +166,32 @@ For select values of $k$, plots of $a_i$ as a function of $i$ and $p$ are shown 
 \caption{\label{fig:ai_vs_i_p}Plots of $a_i$ as a function of $i$ and $p$, for select values of $k$.}
 \end{figure}
 
+\pagebreak
+\noindent Mathematica code for Figure \ref{fig:ai_vs_i_p}:
+\begin{codeSmall}
+ai[i_, k_, p_] := Piecewise[{
+   {i/k, p == 0.5},
+   {(((1 - p)/p)^i - 1)/(((1 - p)/p)^k - 1), p != 0.5}}]
+
+makePlot[k_] :=
+ ListPointPlot3D[Flatten[
+   Table[{i, p, ai[i, k, p]},
+    {i, 0, k, 1},
+    {p, 0.06, 0.99, 0.0045}], 1],
+  AxesLabel -> {i, p, Subscript[a, i]}, 
+  LabelStyle -> Directive[Darker[Gray], Bold, 10],
+  ImageSize -> 300,
+  ColorFunction -> 
+   Function[{x, y, z}, ColorData["BlueGreenYellow"][x]],
+  Filling -> Bottom, FillingStyle -> Directive[Thick, Opacity[0.2]],
+  ViewPoint -> {-2.17, -2.37, 1.04}, 
+  ViewVertical -> {-0.19, -0.24, 2.37},
+  PlotLabel -> Style["k=" <> ToString[k], 12, Italic, Black]
+  ]
+
+GraphicsGrid[{{makePlot[2], makePlot[5]}, {makePlot[10], 
+   makePlot[15]}}, ImageSize -> 600]
+\end{codeSmall}
 
 
 \end{document}
