@@ -1,0 +1,157 @@
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ai", "[", 
+   RowBox[{"i_", ",", "k_", ",", "p_"}], "]"}], ":=", "\[IndentingNewLine]", 
+  RowBox[{"Piecewise", "[", "\[IndentingNewLine]", 
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"i", "/", "k"}], ",", " ", 
+       RowBox[{"p", "\[Equal]", "0.5"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"1", "-", "p"}], ")"}], "/", "p"}], ")"}], "^", "i"}], 
+          "-", "1"}], ")"}], "/", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"1", "-", "p"}], ")"}], "/", "p"}], ")"}], "^", "k"}], 
+          "-", "1"}], ")"}]}], ",", " ", 
+       RowBox[{"p", "\[NotEqual]", "0.5"}]}], "}"}]}], "\[IndentingNewLine]", 
+    "}"}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.658415900362514*^9, 3.658415959320326*^9}, {
+  3.658416049082255*^9, 3.658416091172636*^9}, {3.6584162039087753`*^9, 
+  3.658416204931624*^9}, {3.6584199520500917`*^9, 3.658419955148382*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"makePlot", "[", "kk_", "]"}], ":=", "\[IndentingNewLine]", 
+  RowBox[{"ListPointPlot3D", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Flatten", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"i", ",", "p", ",", 
+          RowBox[{"ai", "[", 
+           RowBox[{"i", ",", "kk", ",", "p"}], "]"}]}], "}"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "0", ",", "kk", ",", "1"}], "}"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{"p", ",", "0.06", ",", "0.99", ",", "0.0045"}], "}"}]}], 
+       "\[IndentingNewLine]", "]"}], ",", "1"}], "]"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"AxesLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "p", ",", 
+       SubscriptBox["a", "i"]}], "}"}]}], ",", 
+    RowBox[{"LabelStyle", "\[Rule]", 
+     RowBox[{"Directive", "[", 
+      RowBox[{
+       RowBox[{"Darker", "[", "Gray", "]"}], ",", "Bold", ",", " ", "10"}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"ImageSize", "\[Rule]", "300"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"ColorFunction", "\[Rule]", 
+     RowBox[{"Function", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y", ",", "z"}], "}"}], ",", 
+       RowBox[{
+        RowBox[{"ColorData", "[", "\"\<BlueGreenYellow\>\"", "]"}], "[", "x", 
+        "]"}]}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"Filling", "\[Rule]", "Bottom"}], ",", " ", 
+    RowBox[{"FillingStyle", "\[Rule]", 
+     RowBox[{"Directive", "[", 
+      RowBox[{"Thick", ",", 
+       RowBox[{"Opacity", "[", "0.2", "]"}]}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"ViewPoint", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "2.17"}], ",", 
+       RowBox[{"-", "2.37"}], ",", "1.04"}], "}"}]}], ",", 
+    RowBox[{"ViewVertical", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "0.19"}], ",", 
+       RowBox[{"-", "0.24"}], ",", "2.37"}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PlotLabel", "\[Rule]", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+       RowBox[{"\"\<k=\>\"", "<>", 
+        RowBox[{"ToString", "[", "kk", "]"}]}], ",", " ", "12", ",", " ", 
+       "Italic", ",", " ", "Black"}], "]"}]}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.6584181279648933`*^9, 3.6584182144733677`*^9}, {
+  3.658418350469501*^9, 3.658418449179846*^9}, {3.6584185643369417`*^9, 
+  3.6584186284917307`*^9}, {3.658418934781928*^9, 3.658418937127192*^9}, {
+  3.658419390510467*^9, 3.658419464546067*^9}, {3.658419511715184*^9, 
+  3.658419600416935*^9}, {3.658419632908133*^9, 3.658419649771124*^9}, {
+  3.658419757922905*^9, 3.658419810956468*^9}, {3.658420025320242*^9, 
+  3.658420033941554*^9}, {3.658420111050147*^9, 3.658420155034142*^9}, {
+  3.658420188111685*^9, 3.658420310470126*^9}, {3.658420517058593*^9, 
+  3.658420523078961*^9}, {3.6584205685065603`*^9, 3.658420590876547*^9}, {
+  3.6584206514783163`*^9, 3.658420733733821*^9}, {3.658420906667819*^9, 
+  3.6584209067855463`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"makePlot", "[", "10", "]"}]], "Input",
+ CellChangeTimes->{{3.658420039387957*^9, 3.658420064372858*^9}, {
+  3.6584203208350077`*^9, 3.658420321625991*^9}, {3.658420354544795*^9, 
+  3.658420394171398*^9}}],
+
+Cell[BoxData[
+ RowBox[{"gg", "=", 
+  RowBox[{"GraphicsGrid", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"makePlot", "[", "2", "]"}], ",", 
+        RowBox[{"makePlot", "[", "5", "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"makePlot", "[", "10", "]"}], ",", 
+        RowBox[{"makePlot", "[", "15", "]"}]}], "}"}]}], "}"}], ",", " ", 
+    RowBox[{"ImageSize", "\[Rule]", "600"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.6584203961042013`*^9, 3.6584204117681103`*^9}, {
+  3.6584204423829403`*^9, 3.658420471284947*^9}, {3.658420602930327*^9, 
+  3.658420623941841*^9}, {3.658420759455741*^9, 3.658420780671783*^9}, {
+  3.658420811813716*^9, 3.658420812009153*^9}, {3.658421317730444*^9, 
+  3.6584213184324007`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+  "\"\</Users/brianweinstein/Documents/gamblers-ruin/plots.png\>\"", ",", 
+   "gg", ",", "\"\<PNG\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.658420944453383*^9, 3.658420945977025*^9}, {
+   3.65842132177761*^9, 3.658421368162692*^9}, 3.658421560459477*^9},
+ NumberMarks->False]
+},
+WindowSize->{1150, 755},
+WindowMargins->{{32, Automatic}, {Automatic, 21}},
+PrivateNotebookOptions->{"FileOutlineCache"->False},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (June 27, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+
