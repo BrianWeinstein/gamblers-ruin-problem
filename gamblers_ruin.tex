@@ -4,6 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{mathtools}
 \usepackage{graphicx}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage[lmargin=1.in,rmargin=1.in,tmargin=1.in,bmargin=1in]{geometry}
@@ -14,7 +15,7 @@
 
 \title{The Gambler's Ruin Problem}
 \author{Brian Weinstein - bmw2148}
-\affil{Probability \& Statistics  (STAT-W4700), Columbia University, Fall 2015}
+\affil{Probability \& Statistics (STAT-W4700), Columbia University, Fall 2015}
 \date{December 15, 2015}
 
 \begin{document}
@@ -35,10 +36,12 @@ Suppose that the game is played repeatedly (and independently) until the fortune
 Let $a_i$ denote the probability that gambler $A$ will reach $k$ dollars before it reaches 0 dollars, given that their initial fortune is $i$ dollars. Since each play of the game is independent of the others, we can think of the problem essentially starts over on each play, with the only difference being that the ``initial'' fortunes of the gambler and casino have changed. The value of interest is $a_i$ for $i\in\{0,1,\ldots,k-1,k\}$.
 
 \subsection{Solution for $i \in \{0,k\}$}
+\label{sec:solntrivial}
 
-The cases of $i=0$ and $i=k$ are trivial. When $A$ runs out of money they can no longer play, and thus $a_0=0$, and when $A$ wins all $k$ dollars, the casino can no longer play, and thus $a_k=1$. Finding $a_i$ when $i\not\in\{0,k\}$ is nontrivial and is solved below.
+The cases of $i=0$ and $i=k$ are trivial. When $A$ runs out of money they can no longer play, and thus $a_0=0$, and when $A$ wins all $k$ dollars, the casino can no longer play, and thus $a_k=1$. Finding $a_i$ when $i\not\in\{0,k\}$ is nontrivial and is solved in Section \ref{sec:solnnontrivial} below.
 
 \subsection{Solution for $i \in \{1,2,\ldots,k-2,k-1\}$}
+\label{sec:solnnontrivial}
 
 Define the following events:
 \begin{itemize}
@@ -48,16 +51,46 @@ Define the following events:
 \end{itemize}
 
 By the Law of Total Probability, we see that
-\begin{eqnarray}
+\begin{align}
 \Prob(W)&=\Prob(A_1)\Prob(W|A_1)+\Prob(B_1)\Prob(W|B_1) \nonumber 
 \\
-&=p\Prob(W|A_1)+(1-p)\Prob(W|B_1). \nonumber 
-\end{eqnarray}
+&=p\Prob(W|A_1)+(1-p)\Prob(W|B_1).
+\label{eqn:lawoftotalprob}
+\end{align}
 
+Since the gambler starts with $i$ dollars, we see that $\Prob(W)=a_i$, as defined earlier. If the gambler wins on the first play, they'd now have $i+1$ dollars, and by our assumption that each game play is independent, we see that $\Prob(W|A_1)=a_{i+1}$. Similarly, if the gambler loses on the first play they'd now have $i-1$ dollars, and therefore $\Prob(W|B_1)=a_{i-1}$.
 
+By Equation \ref{eqn:lawoftotalprob}, we find
+\begin{equation}
+a_i=p a_{i+1} + (1-p) a_{i-1}.
+\label{eqn:defai}
+\end{equation}
 
+By plugging in $i=1,2,\ldots,k-2,k-1$ into Equation \ref{eqn:defai}, we get $k-1$ equations
+\begin{align}
+a_1 &= p a_2 + (1-p) a_0 = p a_2 \nonumber
+\\
+a_2 &= p a_3 + (1-p) a_1 \nonumber
+\\
+& \vdotswithin{=} \nonumber
+\\
+a_{k-2} &= p a_{k-1} + (1-p) a_{k-3} \nonumber
+\\
+a_{k-1} &= p a_{k} + (1-p) a_{k-2} = p + (1-p) a_{k-2},
+\label{eqn:exampleai}
+\end{align}
+where we can simplify our equations for $a_1$ and $a_k-1$ by using $a_0=0$ and $a_k=1$, as defined in Section \ref{sec:solntrivial}.
 
-
+We can rewrite these $k-1$ equations as
+\begin{align}
+asdf
+\label{eqn:exampleairewritten}
+\end{align}
+and by equating the sum of the left sides of the equations with the sum of the right sides of the equations in Equation \ref{eqn:exampleairewritten}, we find
+\begin{equation}
+asdf
+\label{eqn:oneminaidefn}
+\end{equation}
 
 
 
