@@ -133,6 +133,22 @@ In an identical method to that used in Section \ref{sec:solnfiargame}, we use th
 a_i = \frac{ \left(\frac{1-p}{p}\right)^i - 1 }{ \left(\frac{1-p}{p}\right)^k - 1 } \ \ \mathrm{for} \ \ i \in \{ 1, 2, \ldots, k-2, k-1 \}.
 \end{equation}
 
+\section{Solution Summary}
+
+Given the probability $p$ that the gambler will win each play of the game, and given the initial fortune $i$ of the gambler and the initial fortune $k-i$ of the casino, we can calculate the probability that each of them would the the first to run out of money.
+
+The probability $a_i$ that gambler will reach $k$ dollars before they reach 0 dollars, given that they start with $i$ dollars is given by
+\begin{equation}
+a_i =
+\begin{cases}
+\frac{i}{k} & p=0.5\\
+\frac{ \left(\frac{1-p}{p}\right)^i - 1 }{ \left(\frac{1-p}{p}\right)^k - 1 } & p\neq0.5
+\end{cases} \ \ \mathrm{for} \ \ i \in \{ 0, 1, \ldots, k-1, k \}.
+\end{equation}
+
+
+
+
 
 
 
