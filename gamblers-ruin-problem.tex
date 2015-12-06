@@ -26,7 +26,7 @@
 
 \section{Problem Statement}
 
-In the Gambler's Ruin Problem, we have a gambler $A$ and a casino $B$, who are playing a game against each other. The total combined fortune of the two is $k$ dollars, with the gambler starting with $i$ dollars, and the casino starting with $k-i$ dollars, where $i$ and $k-i$ are known positive integers. On each play of the game, the probability that $A$ will win one dollar from $B$ is a known value $p\in\left(0,1\right)$, and the probability that $B$ will win one dollar from $A$ is $1-p$.
+In the Gambler's Ruin Problem, we have a gambler $A$ and a casino $B$, who are playing a game against each other. The total combined fortune of the two is $k$ dollars, with the gambler starting with $i$ dollars, and the casino starting with $k-i$ dollars, where $i$ and $k-i$ are known positive integers. On each play of the game, the probability that $A$ will win one dollar from $B$ is a known value $p\in\left(0,1\right]$, and the probability that $B$ will win one dollar from $A$ is $1-p$.
 
 Suppose that the game is played repeatedly (and independently) until the fortune of either $A$ or $B$ is reduced to 0 dollars.
 
@@ -135,7 +135,7 @@ a_i = \frac{ \left(\frac{1-p}{p}\right)^i - 1 }{ \left(\frac{1-p}{p}\right)^k - 
 
 \section{Solution Summary}
 
-Given the probability $p$ that the gambler will win each play of the game, and given the initial fortune $i$ of the gambler and the initial fortune $k-i$ of the casino, we can calculate the probability that each of them would the the first to run out of money.
+Given the probability $p\in\left(0,1\right]$ that the gambler will win each play of the game, and given the initial fortune $i$ of the gambler and the initial fortune $k-i$ of the casino, we can calculate the probability that each of them would the the first to run out of money.
 
 The probability $a_i$ that gambler will reach $k$ dollars before they reach 0 dollars, given that they start with $i$ dollars is given by
 \begin{equation}
@@ -143,7 +143,7 @@ a_i =
 \begin{cases}
 \frac{i}{k} & p=0.5\\
 \frac{ \left(\frac{1-p}{p}\right)^i - 1 }{ \left(\frac{1-p}{p}\right)^k - 1 } & p\neq0.5
-\end{cases} \ \ \mathrm{for} \ \ i \in \{ 0, 1, \ldots, k-1, k \}.
+\end{cases} \ \ \ \ \mathrm{for} \ \ i \in \{ 0, 1, \ldots, k-1, k \}.
 \end{equation}
 
 
