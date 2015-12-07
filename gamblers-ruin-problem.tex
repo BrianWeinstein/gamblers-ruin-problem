@@ -10,6 +10,7 @@
 \usepackage[lmargin=1.in,rmargin=1.in,tmargin=1.in,bmargin=1in]{geometry}
 \usepackage{authblk}
 \usepackage{setspace}
+\usepackage{natbib}
 
 \newcommand{\Prob}{\mathrm{P}}
 
@@ -34,6 +35,8 @@
 \begin{document}
 \maketitle
 %\doublespacing
+
+\nocite{*}
 
 
 
@@ -195,5 +198,7 @@ GraphicsGrid[{{makePlot[2], makePlot[5]}, {makePlot[10],
    makePlot[15]}}, ImageSize -> 600]
 \end{codeSmall}
 
+\bibliographystyle{plain}
+\bibliography{gamblers-ruin-problem.bib}
 
 \end{document}
